@@ -1,6 +1,7 @@
 #include "planet.h"
 #include "splashkit.h"
-#include "player.h"
+// #include "player.h"
+// #include <cstdlib>
 
 // /**
 //  * The ship bitmap function converts a ship kind into a
@@ -93,6 +94,15 @@ void draw_asteroid(planet_data &asteroid_to_draw)
 {
     draw_sprite(asteroid_to_draw.asteroid_sprite);
 }
+
+// bool planet_data::planet_sprite(vector<check_collision>)
+// {
+//     if(sprite_collision((player_sprite.player_sprite), (planet_sprite.planet_sprite)))
+//     {
+//         return true;
+//     }
+//     return false;
+// }
 
 // to check if a collision had been made with the player and deduct score
 

@@ -3,9 +3,10 @@
 
 #include "splashkit.h"
 #include <vector>
-#include "player.h"
+// #include "player.h"
 
 using namespace std;
+using std::vector;
 
 #define PLANET_SPEED 0.5
 #define ASTEROID_SPEED 10
@@ -41,6 +42,7 @@ struct planet_data
     sprite planet_sprite;
     planet_type type;
     sprite asteroid_sprite;
+    vector<sprite> check_collision;
 };
 
 bitmap planet_bitmap(planet_type type);
@@ -63,5 +65,7 @@ void update_asteroid(planet_data &asteroid_to_update);
 void draw_asteroid(planet_data &asteroid_to_draw);
 
 // void killer_asteroid( player_data &player, planet_data &asteroid);
+
+// bool check_collisions(const planet_data &planet_sprite, const player_data &player_sprite);
 
 #endif

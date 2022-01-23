@@ -145,7 +145,7 @@ void handle_input(player_data &player)
         sprite_set_dx(player.player_sprite, dx + PLAYER_SPEED);
 }
 
-void draw_hud(const player_data &player,  const  planet_data &planet)
+void draw_hud(const player_data &player, const planet_data &planet)
 {
     fill_rectangle(COLOR_WHITE, 0, 0, 300, 40, option_to_screen());
     draw_text("SCORE: " + to_string(player.score), COLOR_BLACK, 0, 0, option_to_screen());
@@ -164,7 +164,7 @@ void player_score( player_data &player_sprite, planet_data &planet_sprite)
 {
 
 
-    if( sprite_collision((player_sprite.player_sprite), (planet_sprite.planet_sprite)) )
+    if(sprite_collision(player_sprite.player_sprite ,planet_sprite.planet_sprite) )
     {
         player_sprite.score ++;
         planet_sprite = new_planet(rnd(10,500),rnd(50,1000));

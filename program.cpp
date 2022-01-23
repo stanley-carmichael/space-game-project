@@ -57,12 +57,12 @@ int main()
             // killer_asteroid(player, asteroid);
 
             // check to see if player has found planet and update there score.
-            player_score(player,planet);
+            player_score(player, planet);
 
             // Redraw everything
             clear_screen(COLOR_BLACK);
 
-            draw_hud(player,planet);
+            draw_hud(player, planet);
 
             // as well as the player who can move
             draw_player(player);
