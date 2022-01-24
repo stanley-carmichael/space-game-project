@@ -63,10 +63,10 @@ int main()
                 asteroid = new_asteroid(100, 300);
             }
 
-            if(point_point_distance(center_point(player.player_sprite),center_point(planet.asteroid_sprite)) > 750)
-            {
-                asteroid = new_asteroid(100, 300);
-            }
+            // if(point_point_distance(center_point(player.player_sprite),center_point(planet.asteroid_sprite)) > 750)
+            // {
+            //     asteroid = new_asteroid(100, 300);
+            // }
 
             // check to see if player has found planet and update there score.
             player_score(player, planet);
