@@ -42,7 +42,6 @@ struct planet_data
     sprite planet_sprite;
     planet_type type;
     sprite asteroid_sprite;
-    vector<sprite> check_collision;
 };
 
 bitmap planet_bitmap(planet_type type);
@@ -63,6 +62,8 @@ planet_data new_asteroid(double x, double y);
 void update_asteroid(planet_data &asteroid_to_update);
 
 void draw_asteroid(planet_data &asteroid_to_draw);
+
+bool check_collision(sprite s1, sprite s2);
 
 // void killer_asteroid( player_data &player, planet_data &asteroid);
 

@@ -95,14 +95,15 @@ void draw_asteroid(planet_data &asteroid_to_draw)
     draw_sprite(asteroid_to_draw.asteroid_sprite);
 }
 
-// bool planet_data::planet_sprite(vector<check_collision>)
-// {
-//     if(sprite_collision((player_sprite.player_sprite), (planet_sprite.planet_sprite)))
-//     {
-//         return true;
-//     }
-//     return false;
-// }
+bool check_collision(sprite s1, sprite s2)
+{
+    if(sprite_collision((s1), (s2)))
+    {
+        // new_asteroid(rnd(10,50), rnd(10,100));
+        return true;
+    }
+    return false;
+}
 
 // to check if a collision had been made with the player and deduct score
 

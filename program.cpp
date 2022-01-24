@@ -32,9 +32,12 @@ int main()
     player.score = 0;
     // set player health to 100
     player.health = 100;
+    sprite s1 = player.player_sprite;
+    sprite s2 = asteroid.asteroid_sprite;
+
 
     // ends the game if the players health is 0
-    if(player.health < 1)
+    if(player.health <= 0)
     {
         clear_screen(COLOR_BLACK);
         draw_text("GAME OVER!! " ,COLOR_RED, 350, 300, option_to_screen());
@@ -53,6 +56,12 @@ int main()
             update_player(player);
             update_planet(planet);
             update_asteroid(asteroid);
+
+            if(check_collision(s1, s2))
+            {
+                player.health -= 5  ;
+                asteroid = new_asteroid(100, 300);
+            }
 
             // killer_asteroid(player, asteroid);
 
