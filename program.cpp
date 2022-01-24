@@ -32,6 +32,8 @@ int main()
     player.score = 0;
     // set player health to 100
     player.health = 100;
+
+//  create variables to check collision between the asteroid and player
     sprite s1 = player.player_sprite;
     sprite s2 = asteroid.asteroid_sprite;
 
@@ -57,11 +59,14 @@ int main()
 
             if(check_collision(s1, s2))
             {
-                player.health -= 5  ;
+                player.health -= 1  ;
                 asteroid = new_asteroid(100, 300);
             }
 
-            // killer_asteroid(player, asteroid);
+            if(point_point_distance(center_point(player.player_sprite),center_point(planet.asteroid_sprite)) > 750)
+            {
+                asteroid = new_asteroid(100, 300);
+            }
 
             // check to see if player has found planet and update there score.
             player_score(player, planet);
