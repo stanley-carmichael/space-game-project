@@ -35,18 +35,16 @@ int main()
     sprite s1 = player.player_sprite;
     sprite s2 = asteroid.asteroid_sprite;
 
-
+    while ( not quit_requested() )
     // ends the game if the players health is 0
-    if(player.health <= 0)
-    {
+    {   if(player.health <= 0)
+        {
         clear_screen(COLOR_BLACK);
         draw_text("GAME OVER!! " ,COLOR_RED, 350, 300, option_to_screen());
         refresh_screen(60);
         delay(6000);
-    }
-    else
-    // game will continue until user decides to quit
-    {    while ( not quit_requested() )
+        }
+        else
         {
             // Handle input to adjust player movement
             process_events();
