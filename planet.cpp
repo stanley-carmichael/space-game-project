@@ -105,18 +105,3 @@ bool check_collision(sprite s1, sprite s2)
     return false;
 }
 
-// to check if a collision had been made with the player and deduct score
-
-// void killer_asteroid( player_data &player, planet_data &asteroid)
-// {
-
-
-//     if( sprite_collision((player.player_sprite), (asteroid.asteroid_sprite)) )
-//     {
-//         player.health -1;
-//         asteroid = new_asteroid(rnd(10,50),rnd(50,100));
-//         // draw_planet(planet_sprite);
-//     }
-
-
-// }

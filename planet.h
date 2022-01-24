@@ -65,8 +65,6 @@ void draw_asteroid(planet_data &asteroid_to_draw);
 
 bool check_collision(sprite s1, sprite s2);
 
-// void killer_asteroid( player_data &player, planet_data &asteroid);
 
-// bool check_collisions(const planet_data &planet_sprite, const player_data &player_sprite);
 
 #endif
