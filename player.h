@@ -6,6 +6,7 @@
 #include <vector>
 
 using namespace std;
+using std::vector;
 
 #define PLAYER_SPEED 1.5
 #define PLAYER_ROTATE_SPEED 3
@@ -35,7 +36,8 @@ struct player_data
     sprite      player_sprite;
     int         score;
     ship_kind   kind;
-    int         health;
+    float       health;
+    vector <int> planets_found;
 };
 
 /**
@@ -66,7 +68,7 @@ void update_player(player_data &player_to_update);
  */
 void handle_input(player_data &player);
 
-void draw_hud(const player_data &player, const planet_data &planet);
+void draw_hud(const player_data &player, planet_data &planet);
 
 void player_score(player_data &player_sprite, planet_data &planet_sprite);
 

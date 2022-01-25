@@ -3,7 +3,7 @@
 
 #include "splashkit.h"
 #include <vector>
-// #include "player.h"
+
 
 using namespace std;
 using std::vector;
@@ -41,7 +41,7 @@ struct planet_data
 {
     sprite planet_sprite;
     planet_type type;
-    sprite asteroid_sprite;
+    vector<sprite> asteroid_sprite;
 };
 
 bitmap planet_bitmap(planet_type type);
@@ -63,7 +63,7 @@ void update_asteroid(planet_data &asteroid_to_update);
 
 void draw_asteroid(planet_data &asteroid_to_draw);
 
-bool check_collision(sprite s1, sprite s2);
+
 
 
 
