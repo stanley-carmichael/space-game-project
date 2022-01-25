@@ -145,7 +145,7 @@ void handle_input(player_data &player)
         sprite_set_dx(player.player_sprite, dx + PLAYER_SPEED);
 }
 
-void draw_hud(const player_data &player, const planet_data &planet)
+void draw_hud(const player_data &player, planet_data &planet)
 {
     fill_rectangle(COLOR_WHITE, 0, 0, 300, 40, option_to_screen());
     draw_text("SCORE: " + to_string(player.score), COLOR_BLACK, 0, 0, option_to_screen());
@@ -153,7 +153,7 @@ void draw_hud(const player_data &player, const planet_data &planet)
     draw_text("LOCATION: " + point_to_string(center_point(player.player_sprite)), COLOR_BLACK, 0, 20, option_to_screen());
     draw_text("DISTANCE TO PLANET: " + to_string(point_point_distance(center_point(player.player_sprite),center_point(planet.planet_sprite))), COLOR_BLACK,0,30, option_to_screen());
 }
-
+// draw_text("DISTANCE TO PLANET: " + to_string(point_point_distance(center_point(player.player_sprite),center_point(planet.planet_sprite))), COLOR_BLACK,0,30, option_to_screen());
 /**
  * @brief function to return a score if the ship and the plannet collide.
  * player_data and plannet_data required to determine if a collision has happened
@@ -167,8 +167,9 @@ void player_score( player_data &player_sprite, planet_data &planet_sprite)
     if(sprite_collision(player_sprite.player_sprite ,planet_sprite.planet_sprite) )
     {
         player_sprite.score ++;
+        player_sprite.planets_found.push_back(1);
         planet_sprite = new_planet(rnd(10,500),rnd(50,1000));
-        // draw_planet(planet_sprite);
+
     }
 
 

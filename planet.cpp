@@ -1,7 +1,6 @@
 #include "planet.h"
 #include "splashkit.h"
-// #include "player.h"
-// #include <cstdlib>
+
 
 // /**
 //  * The ship bitmap function converts a ship kind into a
@@ -16,12 +15,12 @@ bitmap planet_bitmap(planet_type type)
 {
     switch (type)
     {
+    case PLUTO:
+        return bitmap_named("pluto");
     case MERCURY:
         return bitmap_named("mercury");
     case VENUS:
         return bitmap_named("venus");
-    case PLUTO:
-        return bitmap_named("pluto");
     case MARS:
         return bitmap_named("mars");
     case JUPITER:
@@ -40,7 +39,7 @@ bitmap planet_bitmap(planet_type type)
 planet_data new_planet(double x, double y)
 {
     planet_data result;
-    result.type = static_cast<planet_type>(rnd(9));
+    result.type = static_cast<planet_type>(rnd(8)+1);
 
     bitmap default_bitmap = planet_bitmap(result.type);
 
@@ -74,48 +73,25 @@ planet_data new_asteroid(double x, double y)
 
     bitmap default_bitmap = planet_bitmap(result.type);
 
-    result.asteroid_sprite = create_sprite(default_bitmap);
+    result.asteroid_sprite.push_back (create_sprite(default_bitmap));
 
     // Position planet at x y location.
-    sprite_set_x(result.asteroid_sprite, x);
-    sprite_set_y(result.asteroid_sprite, y);
+    sprite_set_x(result.asteroid_sprite[0], x);
+    sprite_set_y(result.asteroid_sprite[0], y);
 
     return result;
 }
 
 void update_asteroid(planet_data &asteroid_to_update)
 {
-    update_sprite(asteroid_to_update.asteroid_sprite);
+    update_sprite(asteroid_to_update.asteroid_sprite[0]);
 
-    sprite_set_dx(asteroid_to_update.asteroid_sprite, ASTEROID_SPEED);
+    sprite_set_dx(asteroid_to_update.asteroid_sprite[0], ASTEROID_SPEED);
 }
 
 void draw_asteroid(planet_data &asteroid_to_draw)
 {
-    draw_sprite(asteroid_to_draw.asteroid_sprite);
+    draw_sprite(asteroid_to_draw.asteroid_sprite[0]);
 }
 
-// bool planet_data::planet_sprite(vector<check_collision>)
-// {
-//     if(sprite_collision((player_sprite.player_sprite), (planet_sprite.planet_sprite)))
-//     {
-//         return true;
-//     }
-//     return false;
-// }
 
-// to check if a collision had been made with the player and deduct score
-
-// void killer_asteroid( player_data &player, planet_data &asteroid)
-// {
-
-
-//     if( sprite_collision((player.player_sprite), (asteroid.asteroid_sprite)) )
-//     {
-//         player.health -1;
-//         asteroid = new_asteroid(rnd(10,50),rnd(50,100));
-//         // draw_planet(planet_sprite);
-//     }
-
-
-// }
