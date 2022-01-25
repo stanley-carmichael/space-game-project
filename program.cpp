@@ -22,15 +22,13 @@ void asteroid_collision(player_data &player, planet_data &asteroid)
         {
             player.health -= 5  ;
             asteroid.asteroid_sprite.pop_back();
-            asteroid = new_asteroid(rnd(-100,300), rnd(0,600) );
-            //change variable for new asteroid after it has been created.
-            // sprite s2 = asteroid.asteroid_sprite[0];
+            asteroid = new_asteroid(rnd(-100,-10), rnd(0,600) );
         }
 
         if(point_point_distance(center_point(s1), center_point(s2)) > 1000  )
         {
             asteroid.asteroid_sprite.pop_back();
-            asteroid = new_asteroid(rnd(-100,300), rnd(0,600));
+            asteroid = new_asteroid(rnd(-100,-10), rnd(0,600));
         }
 }
 
@@ -50,7 +48,7 @@ int main()
     planet_data planet;
     planet = new_planet(200,50);
     planet_data asteroid;
-    asteroid = new_asteroid(100,300);
+    asteroid = new_asteroid(rnd(-100,-10),300);
     // set player score to 0
     player.score = 0;
     // set player health to 100
